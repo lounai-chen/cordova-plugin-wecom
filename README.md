@@ -8,15 +8,31 @@ cordova wecom  企业微信分享
 ```
 cordova plugin add https://github.com/lounai-chen/cordova-plugin-wecom  --variable APPID=123xxxxxx --variable AGENTID=456xxxxxx --variable SCHEMA=789xxxxxx --save 
 
-
- 
 ``` 
 
 ### 2.使用方法
 
 
 ``` 
-WecomPlugin.share_txt('hello world',function(s){ },function(e){alert('error: '+e)})
+
+1.分享文字
+WecomPlugin.share_txt('hello world',function(s){ },function(e){alert('error: '+e)}); 
+
+2.分享图片
+WecomPlugin.share_image('path','img_name','img_type',function(s){ },function(e){alert('error: '+e)}); 
+
+3.分享文件
+WecomPlugin.share_file('path','file_name','file_type',function(s){ },function(e){alert('error: '+e)}); 
+
+4.分享视频
+WecomPlugin.share_video('path', 'video_name','video_type',function(s){ },function(e){alert('error: '+e)}); 
+ 
+5.分享链接
+WecomPlugin.share_link('thumbUrl, 'webpageUrl','title','description','thumb_img_type',function(s){ },function(e){alert('error: '+e)}); 
+
+
+
+
 ```
  
   
@@ -45,11 +61,31 @@ xmlns:tools="http://schemas.android.com/tools"
 
 ### **ios配置**
 
-1.不支持模拟器调试 
+1.需要您手动修改 AppDelegate.m 
 
-2.AliyunQueenUIKit.framework,MNN.framework 设置为 Do Not Embed,  其他的framework设置为 Embed & Sign 
+``` 
+#import "WWKApi.h" 
 
-3.插件的文件夹添加成功,但xcode编译没加载进来,因此需要手动先删除再添加 
+@interface AppDelegate () <WWKApiDelegate>
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    /*! @brief 调用这个方法前需要先到管理端进行注册 走管理端的注册方式
+     *
+     * 在管理端通过注册(可能需要等待审批)，获得schema+corpid+agentid
+     * 将获取到的三个参数对应填在这里，并到项目 Target 的 Info 里边注册 URL Types
+     *
+     * @param appId   第三方App的Schema
+     * @param corpId  第三方App所属企业的ID
+     * @param agentId 第三方App在企业内部的ID
+     */
+    [WWKApi registerApp:@"wxworksdktest" corpId:@"wx4bed5325e7819482" agentId:@""];
+    return YES;
+}
+
+``` 
+
+
+
 
 
 
