@@ -1,8 +1,8 @@
 //
-//  LivePlugin.h
+//  WecomPlugin.h
 //   
 //
-//  Created by noah-chen on 2022/5/30.
+//  Created by noah-chen on 2022/7/8.
 //
 
 #ifndef LivePlugin_h

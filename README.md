@@ -9,16 +9,20 @@ cordova wecom  企业微信分享
 cordova plugin add https://github.com/lounai-chen/cordova-plugin-wecom  --variable APPID=123xxxxxx --variable AGENTID=456xxxxxx --variable SCHEMA=789xxxxxx --save 
 
 
+ 
+``` 
+
 ### 2.使用方法
-`WecomPlugin.init('hello world',function(s){ },function(e){alert('error: '+e)})` 
+
+
+``` 
+WecomPlugin.share_txt('hello world',function(s){ },function(e){alert('error: '+e)})
 ```
  
   
 
 
 
-
- ``` 
 
 
 
