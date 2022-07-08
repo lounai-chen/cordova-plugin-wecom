@@ -54,6 +54,10 @@ xmlns:tools="http://schemas.android.com/tools"
 <application   tools:replace="android:allowBackup"    />
 
  
+<queries>
+    <package android:name="com.tencent.wework" />   // 指定企业微信包名
+</queries>
+
 ```
 
  
@@ -90,13 +94,13 @@ xmlns:tools="http://schemas.android.com/tools"
 
 
 
-##### *注意:多语言配置，资源图片,不知道怎么在插件的plugin.xml文件设置.因此需要您需手动拷贝到对应目录* 
+ 
  
 
 
 
 
-参考链接 
+##### 参考链接 
 
 企业微信开发者中心-官网文档:   https://developer.work.weixin.qq.com/document/path/91196 
   
