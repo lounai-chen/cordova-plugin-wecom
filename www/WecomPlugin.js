@@ -22,6 +22,6 @@ exports.share_link = function (thumbUrl, webpageUrl,title,description, success, 
     exec(success, error, 'WecomPlugin', 'share_link', [thumbUrl, webpageUrl,title,description]);    
 };
 
-exports.share_miniProgram = function (username, description,path,title, success, error) { 
-    exec(success, error, 'WecomPlugin', 'share_link', [username, description,path,title]);    
-};
+// exports.share_miniProgram = function (username, description,path,title, success, error) { 
+//     exec(success, error, 'WecomPlugin', 'share_miniProgram', [username, description,path,title]);    
+// };

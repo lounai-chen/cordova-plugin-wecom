@@ -139,44 +139,44 @@ public class WecomPlugin extends CordovaPlugin {
       link.agentId = AGENTID; //应用唯一标识。显示在具体应用下的 AgentId字段
       iwwapi.sendMessage(link);
     }
-    else if(action.equals("share_miniProgram ")) {
-      String username = args.getString(0);
-      String description = args.getString(1);
-      String path = args.getString(2);
-      String title = args.getString(3);
+//     else if(action.equals("share_miniProgram")) {
+//       String username = args.getString(0);
+//       String description = args.getString(1);
+//       String path = args.getString(2);
+//       String title = args.getString(3);
 
-      WWMediaMiniProgram miniProgram = new WWMediaMiniProgram();
-      miniProgram.appPkg = this.cordova.getContext().getPackageName();
-      miniProgram.appName = this.cordova.getContext().getString(stringId);
-      miniProgram.appId = APPID; //企业唯一标识。创建企业后显示在，我的企业 CorpID字段
-      miniProgram.agentId = AGENTID; //应用唯一标识。显示在具体应用下的 AgentId字段
-      miniProgram.schema = SCHEMA;
+//       WWMediaMiniProgram miniProgram = new WWMediaMiniProgram();
+//       miniProgram.appPkg = this.cordova.getContext().getPackageName();
+//       miniProgram.appName = this.cordova.getContext().getString(stringId);
+//       miniProgram.appId = APPID; //企业唯一标识。创建企业后显示在，我的企业 CorpID字段
+//       miniProgram.agentId = AGENTID; //应用唯一标识。显示在具体应用下的 AgentId字段
+//       miniProgram.schema = SCHEMA;
 
-      miniProgram.username = username;// "gh_dde54cb88ce7@app"; //必须是应用关联的小程序，注意要有@app后缀
-      miniProgram.description = description;
-      miniProgram.path = path;
+//       miniProgram.username = username;// "gh_dde54cb88ce7@app"; //必须是应用关联的小程序，注意要有@app后缀
+//       miniProgram.description = description;
+//       miniProgram.path = path;
 
-//      Bitmap bitmap = ((BitmapDrawable) getDrawable(R.drawable.test)).getBitmap();
-//      ByteArrayOutputStream stream = new ByteArrayOutputStream();
-//      bitmap.compress(Bitmap.CompressFormat.JPEG, 0, stream);
-//      byte[] byteArray = stream.toByteArray();
+// //      Bitmap bitmap = ((BitmapDrawable) getDrawable(R.drawable.test)).getBitmap();
+// //      ByteArrayOutputStream stream = new ByteArrayOutputStream();
+// //      bitmap.compress(Bitmap.CompressFormat.JPEG, 0, stream);
+// //      byte[] byteArray = stream.toByteArray();
 
-     // miniProgram.hdImageData = byteArray;
-      miniProgram.title = title;
-      iwwapi.sendMessage(miniProgram, new IWWAPIEventHandler() {
-        @Override
-        public void handleResp(BaseMessage resp) {
-          if(resp instanceof WWSimpleRespMessage){
-            WWSimpleRespMessage rsp = (WWSimpleRespMessage)resp;
-            //String t = "";
-//            Toast.makeText(MainActivity.this,
-//              t = "发小程序," + rsp.errCode + "," + rsp.errMsg,
-//              Toast.LENGTH_LONG).show();
-          }
-        }
-      });
+//      // miniProgram.hdImageData = byteArray;
+//       miniProgram.title = title;
+//       iwwapi.sendMessage(miniProgram, new IWWAPIEventHandler() {
+//         @Override
+//         public void handleResp(BaseMessage resp) {
+//           if(resp instanceof WWSimpleRespMessage){
+//             WWSimpleRespMessage rsp = (WWSimpleRespMessage)resp;
+//             //String t = "";
+// //            Toast.makeText(MainActivity.this,
+// //              t = "发小程序," + rsp.errCode + "," + rsp.errMsg,
+// //              Toast.LENGTH_LONG).show();
+//           }
+//         }
+//       });
 
-    }
+//     }
 
       return false;
   }

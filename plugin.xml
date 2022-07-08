@@ -36,15 +36,14 @@
             <feature name="WecomPlugin">
                 <param name="ios-package" value="WecomPlugin" />
             </feature>
-        </config-file>
-       
-        <source-file src="src/ios/WecomPlugin/" />
+        </config-file> 
         
-
+        <source-file src="src/ios/WecomPlugin.m"/> 
+        <header-file src="src/ios/WecomPlugin.h" />  
+        <header-file src="src/ios/SDK/WWKApi.h" /> 
+        <header-file src="src/ios/SDK/WWKApiObject.h" /> 
         
-        <framework src="src/ios/SDK/alivcffmpeg.framework" custom="true" />
-        
-
+        <framework src="src/ios/SDK/libWXWorkApi.a" custom="true" /> 
 
     </platform>
 </plugin>
