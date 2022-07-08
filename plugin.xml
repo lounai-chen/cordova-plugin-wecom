@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-wecom" version="1.0.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>WecomPlugin</name>
+    <preference name="APPID"/>  
+    <preference name="AGENTID"/>  
+    <preference name="SCHEMA"/>  
+    <js-module name="WecomPlugin" src="www/WecomPlugin.js">
+        <clobbers target="WecomPlugin" />
+    </js-module>
+    <!-- android -->
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="WecomPlugin">
+                <param name="android-package" value="com.plugin.huayu.noahwecomplugin.WecomPlugin" />
+            </feature>
+        </config-file>   
+        <config-file target="AndroidManifest.xml" parent="/manifest/application"> 
+            <meta-data android:name="com.plugin.huayu.noahwecomplugin.APPID" android:value="$APPID"/> 
+            <meta-data android:name="com.plugin.huayu.noahwecomplugin.AGENTID" android:value="$AGENTID"/> 
+            <meta-data android:name="com.plugin.huayu.noahwecomplugin.SCHEMA" android:value="$SCHEMA"/> 
+        </config-file>         
+
+        <source-file src="src/android/WecomPlugin.java" target-dir="src/com/plugin/huayu/noahwecomplugin" /> 
+
+        <source-file src="src/android/lib/lib_wwapi-2.0.12.11.aar" target-dir="libs" />  
+        <framework src="src/android/lib/wecom.gradle" custom="true" type="gradleReference"/>
+
+    </platform>
+
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="WecomPlugin">
+                <param name="ios-package" value="WecomPlugin" />
+            </feature>
+        </config-file>
+       
+        <source-file src="src/ios/WecomPlugin/" />
+        
+
+        
+        <framework src="src/ios/SDK/alivcffmpeg.framework" custom="true" />
+        
+
+
+    </platform>
+</plugin>

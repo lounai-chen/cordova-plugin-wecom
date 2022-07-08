@@ -1,0 +1,19 @@
+{
+  "name": "cordova-plugin-wecom",
+  "version": "1.0.1",
+  "description": "cordova wecom  企业微信分享",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lounai-chen/cordova-plugin-wecom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lounai-chen/cordova-plugin-wecom/issues"
+  },
+  "homepage": "https://github.com/lounai-chen/cordova-plugin-wecom#readme"
+}

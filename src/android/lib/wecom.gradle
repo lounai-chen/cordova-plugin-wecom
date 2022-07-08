@@ -1,0 +1,10 @@
+repositories{
+    jcenter()
+    flatDir{
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile (name: 'lib_wwapi-2.0.12.11', ext: 'aar')
+}
