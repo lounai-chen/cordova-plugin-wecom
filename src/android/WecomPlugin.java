@@ -9,7 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 
-import androidx.annotation.RequiresApi;
+import android.support.annotation.RequiresApi;
 
 import com.tencent.wework.api.IWWAPI;
 import com.tencent.wework.api.IWWAPIEventHandler;
@@ -47,12 +47,7 @@ public class WecomPlugin extends CordovaPlugin {
   @Override
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
-
-    iwwapi = WWAPIFactory.createWWAPI(this.cordova.getContext());
-		iwwapi.registerApp(SCHEMA);
-
-		stringId = this.cordova.getContext().getApplicationInfo().labelRes;
-
+    stringId = this.cordova.getContext().getApplicationInfo().labelRes;
     Context context = this.cordova.getActivity().getApplicationContext();
     ApplicationInfo applicationInfo = null;
     try {
@@ -62,9 +57,11 @@ public class WecomPlugin extends CordovaPlugin {
       e.printStackTrace();
     }
     APPID = applicationInfo.metaData.getString("com.plugin.huayu.noahwecomplugin.APPID");
-    AGENTID = applicationInfo.metaData.getString("com.plugin.huayu.noahwecomplugin.AGENTID");
+    AGENTID = String.valueOf(applicationInfo.metaData.getInt("com.plugin.huayu.noahwecomplugin.AGENTID"));
     SCHEMA = applicationInfo.metaData.getString("com.plugin.huayu.noahwecomplugin.SCHEMA");
 
+    iwwapi = WWAPIFactory.createWWAPI(this.cordova.getContext());
+    iwwapi.registerApp(SCHEMA);
   }
 
 
@@ -100,6 +97,9 @@ public class WecomPlugin extends CordovaPlugin {
       img.appId = APPID; //企业唯一标识。创建企业后显示在，我的企业 CorpID字段
       img.agentId = AGENTID;
       iwwapi.sendMessage(img);
+
+      callJS("成功");
+      return true;
     }
     else if(action.equals("share_file")) {
       String path = args.getString(0);
@@ -113,6 +113,9 @@ public class WecomPlugin extends CordovaPlugin {
       file.appId = APPID; //企业唯一标识。创建企业后显示在，我的企业 CorpID字段
       file.agentId = AGENTID; //应用唯一标识。显示在具体应用下的 AgentId字段
       iwwapi.sendMessage(file);
+
+      callJS("成功");
+      return true;
     }
     else if(action.equals("share_video")) {
       String path = args.getString(0);
@@ -126,6 +129,9 @@ public class WecomPlugin extends CordovaPlugin {
       video.appId = APPID; //企业唯一标识。创建企业后显示在，我的企业 CorpID字段
       video.agentId = AGENTID; //应用唯一标识。显示在具体应用下的 AgentId字段
       iwwapi.sendMessage(video);
+
+      callJS("成功");
+      return true;
     }
     else if(action.equals("share_link")) {
       WWMediaLink link = new WWMediaLink();
@@ -138,6 +144,9 @@ public class WecomPlugin extends CordovaPlugin {
       link.appId = APPID; //企业唯一标识。创建企业后显示在，我的企业 CorpID字段
       link.agentId = AGENTID; //应用唯一标识。显示在具体应用下的 AgentId字段
       iwwapi.sendMessage(link);
+
+      callJS("成功");
+      return true;
     }
 //     else if(action.equals("share_miniProgram")) {
 //       String username = args.getString(0);
