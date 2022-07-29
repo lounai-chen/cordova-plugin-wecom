@@ -50,7 +50,7 @@ static NSString* myAsyncCallBackId = nil;
     
 }
 
-- (void)share_img:(CDVInvokedUrlCommand*)command
+- (void)share_image:(CDVInvokedUrlCommand*)command
 {
     myAsyncCallBackId = command.callbackId;
 

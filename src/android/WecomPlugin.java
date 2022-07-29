@@ -85,7 +85,7 @@ public class WecomPlugin extends CordovaPlugin {
 
       return true;
     }
-    else if(action.equals("share_img")) {
+    else if(action.equals("share_image")) {
       String path = args.getString(0);
       String img_name = args.getString(1);
 
