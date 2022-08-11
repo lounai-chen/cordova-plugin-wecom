@@ -13,7 +13,7 @@
  
 
 - (void)share_txt:(CDVInvokedUrlCommand*)command;
-- (void)share_img:(CDVInvokedUrlCommand*)command;
+- (void)share_image:(CDVInvokedUrlCommand*)command;
 - (void)share_file:(CDVInvokedUrlCommand*)command;
 - (void)share_video:(CDVInvokedUrlCommand*)command;
 - (void)share_link:(CDVInvokedUrlCommand*)command;

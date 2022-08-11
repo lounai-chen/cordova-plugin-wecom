@@ -221,22 +221,13 @@ public class WecomPlugin extends CordovaPlugin {
     }
   }
 
-
-
-
-
+ 
 
   private static final String TAG = "PicSaveUtil";
   final static int SAVE_PATH_TYPE_DCIM = 1001;
   final static int SAVE_PATH_TYPE_DATA = 1002;
   public static String savePic(final String imgurl, final Context context, final int savePathType, final String fileName) {
-    /**
-     * @description //保存图片
-     * @param [imgurl, context, savePathType] 网络地址/ context / 保存到哪里
-     * @return void
-     * @author yuqingfan
-     * @time 2021/9/2 10:48
-     */
+ 
     String path = "";
 //    new Thread(new Runnable() {
 //      @Override
